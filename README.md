@@ -16,4 +16,23 @@ yarn install
 yarn rw prisma migrate dev
 yarn rw dev
 yarn rw storybook
+yarn rw test
+# creating comments
+yarn rw g component Comment
+yarn rw storybook
+yarn rw test
+yarn rw g cell Comments
+# update schema.prisma
+yarn rw prisma migrate dev
+yarn rw g sdl Comment --no-crud
+yarn rw console
+```
+
+Once in the javascript rw cli type the following:
+
+```javascript
+db.comment.findMany()
+db.comment.findMany({ where: {postId: 1}})
+db.comment.create({ data: { name: 'Peter', body: 'I also like leaving comments', postId: 2 } })
+.exit
 ```
